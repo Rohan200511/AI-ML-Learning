@@ -20,33 +20,34 @@ It serves as my personal learning space where I practice concepts, implement mod
 
 You now understand the workflow:
 
-**Dataset**  
-↓  
-**EDA**  
-↓  
-**Cleaning**  
-↓  
-**Encoding**  
-↓  
-**Scaling**  
-↓  
-**Feature Engineering**  
-↓  
-**Train/Test Split**  
-↓  
-**Train Multiple Models**  
-↓  
-**Evaluate**  
-↓  
-**Cross Validation**  
-↓  
-**Hyperparameter Tuning**  
-↓  
-**Final Model**  
-↓  
-**Save Model**  
-↓  
-**Deploy**
+    **Dataset**  
+    ↓  
+    **EDA**  
+    ↓  
+    **Cleaning**  
+    ↓  
+    **Encoding**  
+    ↓  
+    **Scaling**  
+    ↓  
+    **Feature Engineering**  
+    ↓  
+    **Train/Test Split**  
+    ↓  
+    **Train Multiple Models**  
+    ↓  
+    **Evaluate**  
+    ↓  
+    **Cross Validation**  
+    ↓  
+    **Hyperparameter Tuning**  
+    ↓  
+    **Final Model**  
+    ↓  
+    **Save Model**  
+    ↓  
+    **Deploy**
+    
 
 This is the workflow you'll follow in most real-world ML projects.
 
