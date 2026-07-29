@@ -1,93 +1,159 @@
 # My AI/ML Journey 🚀
 
-Welcome to my AI/ML learning repository!  
-This repo documents my hands-on journey in Machine Learning through notebooks, experiments, and end-to-end workflows.
+A personal, hands-on learning repository documenting my path into Machine Learning and AI — from Python and data-handling fundamentals through classical ML algorithms, model evaluation, and a first end-to-end deployed project.
 
-## 📌 About This Repository
+## 📁 Repository Structure
 
-This repository is primarily built with **Jupyter Notebooks (99.9%)** and a little **Python (0.1%)**.  
-It serves as my personal learning space where I practice concepts, implement models, and build complete ML pipelines.
-
-## 🎯 Goals
-
-- Build a strong foundation in AI/ML
-- Practice data preprocessing and feature engineering
-- Train and compare multiple ML models
-- Learn model evaluation and optimization
-- Prepare projects for real-world deployment
+```
+My-AI-ML-Journey/
+├── Basic Python/                  # Core Python: functions, lambdas, comprehensions,
+│                                   # dictionaries, tuples, built-in functions
+├── Numpy/                         # NumPy fundamentals for numerical computing
+├── Pandas/                        # Data manipulation, feature extraction,
+│                                   # and a countries-dataset project
+├── MatPlotLib/                    # Data visualization: distribution, categorical,
+│                                   # matrix & regression plots, IPL dataset project
+├── Machine_Learning_Foundation/   # First ML notebooks (heart & insurance datasets)
+├── Supervised Learning/
+│   ├── Linear Regression/         # Insurance cost & car price prediction
+│   ├── Classification/            # Logistic Regression, KNN, Decision Tree, Naive Bayes
+│   │   └── Project/               # Heart disease risk prediction (Streamlit app)
+│   ├── Cross_Validation.ipynb
+│   ├── EnsembleLearning.ipynb
+│   └── HyperParameterTuning.ipynb
+└── Unsupervised Learning/
+    ├── Clustering.ipynb
+    └── PCA.ipynb
+```
 
 ## ✅ Complete ML Pipeline
 
-You now understand the workflow:
-   
-   **Dataset**  
-    ↓  
-    **EDA**  
-    ↓  
-    **Cleaning**  
-    ↓  
-    **Encoding**  
-    ↓  
-    **Scaling**  
-    ↓  
-    **Feature Engineering**  
-    ↓  
-    **Train/Test Split**  
-    ↓  
-    **Train Multiple Models**  
-    ↓  
-    **Evaluate**  
-    ↓  
-    **Cross Validation**  
-    ↓  
-    **Hyperparameter Tuning**  
-    ↓  
-    **Final Model**  
-    ↓  
-    **Save Model**  
-    ↓  
-    **Deploy**
-    
+```
+   Dataset
+      │
+      ▼
+     EDA
+      │
+      ▼
+   Cleaning
+      │
+      ▼
+   Encoding
+      │
+      ▼
+    Scaling
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+ Train/Test Split
+      │
+      ▼
+Train Multiple Models
+      │
+      ▼
+   Evaluate
+      │
+      ▼
+Cross Validation
+      │
+      ▼
+Hyperparameter Tuning
+      │
+      ▼
+  Final Model
+      │
+      ▼
+  Save Model
+      │
+      ▼
+   Deploy 🚀
+```
 
-This is the workflow you'll follow in most real-world ML projects.
+This is the workflow followed across the Machine Learning Foundation and Supervised Learning notebooks in this repo, and the same pipeline used to build the Heart Disease Risk Prediction project below.
 
-## 📂 Repository Structure (Typical)
+## 🧠 What's Inside
 
-- `notebooks/` → Jupyter notebooks for experiments and learning
-- `datasets/` → raw and processed datasets
-- `models/` → saved/trained models
-- `scripts/` → reusable Python scripts (preprocessing/training/evaluation)
+**Foundations**
+- Python essentials — functions, lambda expressions, list/dict comprehensions, built-ins
+- NumPy for array/numerical operations
+- Pandas for data cleaning, wrangling, and feature extraction
+- Matplotlib/Seaborn-style visualizations, including an IPL dataset exploration
 
-> Folder names may evolve as I continue learning and adding projects.
+**Machine Learning**
+- End-to-end ML pipeline practice: EDA → cleaning → encoding → scaling → feature engineering → train/test split → model training → evaluation → cross-validation → hyperparameter tuning
+- **Regression:** insurance cost prediction, car price prediction
+- **Classification:** Logistic Regression, KNN, Decision Tree, Naive Bayes
+- **Model selection & tuning:** cross-validation, ensemble methods, hyperparameter tuning
+- **Unsupervised learning:** clustering and PCA (dimensionality reduction)
+
+**Featured Project — Heart Disease Risk Prediction** 🫶
+An interactive Streamlit app (`Supervised Learning/Classification/Project/app.py`) that predicts heart disease risk from patient inputs (age, chest pain type, cholesterol, ECG results, etc.) using a trained and scaled KNN model.
+
+To run it locally:
+```bash
+cd "Supervised Learning/Classification/Project"
+pip install streamlit pandas scikit-learn joblib
+streamlit run app.py
+```
+
+## 🍴 Fork & Use This Repo
+
+Want to use this as a base for your own AI/ML learning journey? Here's how:
+
+1. **Fork it** — click the **Fork** button at the top-right of this repo's GitHub page to create your own copy under your account.
+2. **Clone your fork** locally:
+   ```bash
+   git clone https://github.com/<your-username>/My-AI-ML-Journey.git
+   cd My-AI-ML-Journey
+   ```
+3. **Set up a virtual environment** (optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   ```
+4. **Install the core libraries**:
+   ```bash
+   pip install numpy pandas matplotlib scikit-learn jupyter streamlit joblib
+   ```
+5. **Open the notebooks**:
+   ```bash
+   jupyter notebook
+   ```
+6. **Keep your fork updated** with the original repo (optional):
+   ```bash
+   git remote add upstream https://github.com/Rohan200511/My-AI-ML-Journey.git
+   git fetch upstream
+   git merge upstream/main
+   ```
+
+Feel free to adapt the folder structure, swap in your own datasets, or use this as a template for tracking your own AI/ML progress.
 
 ## 🛠️ Tools & Libraries
 
-Some commonly used libraries in this journey:
-
-- NumPy
-- Pandas
-- Matplotlib / Seaborn
+- Python
+- NumPy, Pandas
+- Matplotlib
 - Scikit-learn
+- Streamlit
 - Jupyter Notebook
 
-## 📈 What You’ll Find Here
+## 🎯 Goals
 
-- Exploratory Data Analysis (EDA)
-- Data cleaning and preprocessing techniques
-- Feature engineering examples
-- Baseline and advanced model training
-- Evaluation metrics and comparisons
-- Hyperparameter tuning workflows
-- Model persistence and deployment preparation
+- Build a strong foundation in AI/ML fundamentals
+- Practice data preprocessing and feature engineering
+- Train, evaluate, and compare multiple ML models
+- Move from notebooks to a deployed, interactive project
+- Progress toward deep learning, NLP, and GenAI
 
 ## 🌱 Learning Mindset
 
-This repository is focused on **progress over perfection**.  
-Each notebook reflects practical learning, experimentation, and improvement over time.
+This repository favors **progress over perfection** — each notebook reflects hands-on practice and iterative improvement rather than polished, final work.
 
 ## 🤝 Connect
 
-If you’re also learning AI/ML, feel free to explore, fork, or share suggestions!
+If you're also learning AI/ML, feel free to explore, fork, or share suggestions!
 
 ---
 
