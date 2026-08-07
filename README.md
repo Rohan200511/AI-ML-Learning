@@ -29,21 +29,12 @@ It is designed to demonstrate both **conceptual understanding** and **practical 
 
 ```text
 AI-ML-Learning/
+├── .gitattributes
+├── .vscode/                       # Editor settings
 ├── Basic Python/                  # Core Python concepts and problem-solving
-├── Numpy/                         # Numerical computing with arrays and vectorized ops
-├── Pandas/                        # Data cleaning, transformation, analysis
-├── MatPlotLib/                    # Data visualization and exploratory plots
-├── Machine_Learning_Foundation/   # Intro ML workflows and baseline models
-├── Supervised Learning/
-│   ├── Linear Regression/         # Regression problems and evaluation
-│   ├── Classification/            # Classification algorithms and project work
-│   │   └── Project/               # Heart disease risk prediction (Streamlit app)
-│   ├── Cross_Validation.ipynb
-│   ├── EnsembleLearning.ipynb
-│   └── HyperParameterTuning.ipynb
-└── Unsupervised Learning/
-    ├── Clustering.ipynb
-    └── PCA.ipynb
+├── Deep Leaning/                  # Deep learning notebooks and experiments
+├── Machine Learning/              # Machine learning notebooks and projects
+└── README.md
 ```
 
 ---
