@@ -6,11 +6,15 @@ load_dotenv()
 
 from langchain_mistralai import ChatMistralAI
 from langchain_community.document_loaders import PyPDFLoader
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 
-data = PyPDFLoader("Documents loaders/GRU.pdf" )
+data = PyPDFLoader("Documents loaders/deeplearning.pdf" )
 docs = data.load()
+
+splitter = RecursiveCharacterTextSplitter(chunk_size = 1000 , chunk_overlap = 200)
+chunks = splitter.split_documents(docs)
+
 
 prompt = ChatPromptTemplate.from_messages(
     [
