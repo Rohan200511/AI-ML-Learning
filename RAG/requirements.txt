@@ -1,0 +1,38 @@
+# Core Framework
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# LLM Providers
+langchain-openai
+langchain-mistralai
+openai
+mistralai
+
+# Vector Database
+chromadb
+langchain-chroma
+
+# Embedding Models
+sentence-transformers
+langchain-huggingface
+
+# Document Loaders
+pypdf
+unstructured
+beautifulsoup4
+lxml
+
+# Text Processing & Utilities
+tiktoken
+python-dotenv
+pandas
+numpy
+tqdm
+requests
+
+# App & UI Layer (Optional)
+fastapi
+uvicorn
+streamlit
