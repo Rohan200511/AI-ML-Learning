@@ -17,7 +17,9 @@ load_dotenv()
 
 llm = ChatMistralAI(model = 'mistral-small-2506' , temperature=0)
 
+#===============
 #1st Agent
+#===============
 
 def build_seacrh_agent():
     return create_agent(model=llm , tools = [web_search])
@@ -27,8 +29,9 @@ def build_seacrh_agent():
 def build_reader_agent():
     return create_agent(model = llm , tools=[scrape_url])
 
-
+#===============
 # Writer Chain
+#===============
 
 writer_prompt = ChatPromptTemplate.from_messages([
     ("system", "You are an expert research writer. Write clear, structured and insightful reports."),
@@ -50,7 +53,9 @@ Be detailed, factual and professional."""),
 
 writer_chain = writer_prompt | llm | StrOutputParser()
 
+#===============
 #critic_chain 
+#===============
 
 critic_prompt = ChatPromptTemplate.from_messages([
      ("system", "You are a sharp and constructive research critic. Be honest and specific."),
