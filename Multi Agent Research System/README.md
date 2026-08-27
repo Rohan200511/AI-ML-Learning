@@ -731,13 +731,3 @@ Then open a pull request on GitHub.
 
 ------------------------------------------------------------------------
 
-## 📄 License
-
-Add your preferred license here, for example:
-
-``` text
-MIT License
-```
-
-If this repository is public, choose and add the corresponding `LICENSE`
-file as well.
