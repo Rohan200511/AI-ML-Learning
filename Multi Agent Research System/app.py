@@ -22,6 +22,198 @@ st.set_page_config(
 
 
 # =========================================================
+# GLOBAL STYLE
+# =========================================================
+
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"]  {
+        font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+        --dt-primary: #6366f1;
+        --dt-primary-dark: #4338ca;
+        --dt-accent: #22d3ee;
+        --dt-bg-soft: #0f172a;
+        --dt-card-border: rgba(148, 163, 184, 0.18);
+    }
+
+    /* Hide default streamlit chrome */
+    #MainMenu, footer {visibility: hidden;}
+    header[data-testid="stHeader"] {background: transparent;}
+
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        max-width: 1200px;
+    }
+
+    /* Hero header */
+    .dt-hero {
+        background: linear-gradient(135deg, #4338ca 0%, #6366f1 45%, #22d3ee 100%);
+        border-radius: 20px;
+        padding: 2.2rem 2.4rem;
+        margin-bottom: 1.8rem;
+        box-shadow: 0 12px 32px rgba(67, 56, 202, 0.25);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dt-hero::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 50%;
+    }
+
+    .dt-hero-badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #e0e7ff;
+        background: rgba(255,255,255,0.14);
+        padding: 0.28rem 0.7rem;
+        border-radius: 999px;
+        margin-bottom: 0.7rem;
+    }
+
+    .dt-hero-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        color: white;
+        margin: 0 0 0.35rem 0;
+        letter-spacing: -0.02em;
+    }
+
+    .dt-hero-sub {
+        color: rgba(255,255,255,0.88);
+        font-size: 1.02rem;
+        max-width: 640px;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    /* Section card */
+    .dt-card {
+        background: rgba(148, 163, 184, 0.05);
+        border: 1px solid var(--dt-card-border);
+        border-radius: 16px;
+        padding: 1.4rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .dt-section-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--dt-primary);
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+    }
+
+    /* Pipeline stage rows */
+    .dt-stage {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 12px;
+        border: 1px solid var(--dt-card-border);
+        background: rgba(148, 163, 184, 0.04);
+        margin-bottom: 0.55rem;
+        transition: all 0.2s ease;
+    }
+
+    .dt-stage.done {
+        border-color: rgba(34, 197, 94, 0.4);
+        background: rgba(34, 197, 94, 0.06);
+    }
+
+    .dt-stage-num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--dt-primary), var(--dt-accent));
+        color: white;
+        font-weight: 700;
+        font-size: 0.85rem;
+    }
+
+    .dt-stage.done .dt-stage-num {
+        background: #22c55e;
+    }
+
+    .dt-stage-icon {
+        font-size: 1.3rem;
+    }
+
+    .dt-stage-name {
+        font-weight: 650;
+        font-size: 0.95rem;
+        margin-bottom: 0.05rem;
+    }
+
+    .dt-stage-desc {
+        font-size: 0.78rem;
+        color: #94a3b8;
+    }
+
+    /* Score badge */
+    .dt-score-ring {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--dt-primary), var(--dt-accent));
+        border-radius: 18px;
+        padding: 1.4rem 1rem;
+        color: white;
+        text-align: center;
+    }
+
+    .dt-score-value {
+        font-size: 2.4rem;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .dt-score-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin-top: 0.3rem;
+    }
+
+    div.stButton > button, div.stDownloadButton > button {
+        border-radius: 10px;
+        font-weight: 650;
+        border: none;
+    }
+
+    div.stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, var(--dt-primary), var(--dt-accent));
+        box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# =========================================================
 # SESSION STATE
 # =========================================================
 
@@ -42,34 +234,27 @@ if "topic_input" not in st.session_state:
 # HEADER
 # =========================================================
 
-st.write("")
-
-top_left, top_right = st.columns([5, 1])
-
-with top_left:
-    st.caption("🔬  MULTI-AGENT AI RESEARCH SYSTEM")
-    st.title("DeepTrace")
-    st.markdown(
-        "Search deeper. Understand better. "
-        "Let four specialized AI agents investigate your question."
-    )
-
-with top_right:
-    st.write("")
-    st.metric("Agents", "4")
-    st.caption("Search · Read · Write · Critique")
-
-st.divider()
+st.markdown(
+    """
+    <div class="dt-hero">
+        <div class="dt-hero-badge">🔬 MULTI-AGENT AI RESEARCH SYSTEM</div>
+        <div class="dt-hero-title">DeepTrace</div>
+        <p class="dt-hero-sub">
+            Search deeper. Understand better. Four specialized AI agents
+            search, read, write, and critique — so you get a vetted
+            research report, not just a list of links.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # =========================================================
 # MAIN WORKSPACE
 # =========================================================
 
-left, right = st.columns(
-    [1.15, 0.85],
-    gap="large",
-)
+left, right = st.columns([1.15, 0.85], gap="large")
 
 
 # =========================================================
@@ -78,7 +263,12 @@ left, right = st.columns(
 
 with left:
 
-    st.subheader("🎯 What do you want to research?")
+    st.markdown('<div class="dt-card">', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="dt-section-label">Step 1 · Ask a question</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown("#### 🎯 What do you want to research?")
 
     topic = st.text_input(
         "Research topic",
@@ -92,7 +282,7 @@ with left:
         use_container_width=True,
         type="primary",
     )
-
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # =========================================================
@@ -101,7 +291,12 @@ with left:
 
 with right:
 
-    st.subheader("🧠 Research Pipeline")
+    st.markdown('<div class="dt-card">', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="dt-section-label">How it works</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown("#### 🧠 Research Pipeline")
 
     stages = [
         ("🔎", "Search Agent", "Find relevant sources"),
@@ -110,26 +305,25 @@ with right:
         ("🧐", "Critic Chain", "Review the final report"),
     ]
 
-    for number, (icon, name, description) in enumerate(
-        stages,
-        start=1,
-    ):
+    is_complete = bool(st.session_state.results)
 
-        if st.session_state.results:
-            status = "✓"
-        else:
-            status = str(number)
+    stage_html = ""
+    for number, (icon, name, description) in enumerate(stages, start=1):
+        cls = "dt-stage done" if is_complete else "dt-stage"
+        badge = "✓" if is_complete else str(number)
+        stage_html += f"""
+        <div class="{cls}">
+            <div class="dt-stage-num">{badge}</div>
+            <div class="dt-stage-icon">{icon}</div>
+            <div>
+                <div class="dt-stage-name">{name}</div>
+                <div class="dt-stage-desc">{description}</div>
+            </div>
+        </div>
+        """
 
-        with st.container(border=True):
-
-            c1, c2 = st.columns([0.55, 3.5])
-
-            with c1:
-                st.markdown(f"**{status}**")
-
-            with c2:
-                st.markdown(f"**{icon} {name}**")
-                st.caption(description)
+    st.markdown(stage_html, unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # =========================================================
@@ -139,17 +333,12 @@ with right:
 if run_btn:
 
     if not topic.strip():
-
-        st.warning(
-            "Please enter a research topic first."
-        )
+        st.warning("Please enter a research topic first.")
 
     else:
-
         st.session_state.results = {}
         st.session_state.running = True
         st.session_state.done = False
-
         st.rerun()
 
 
@@ -157,28 +346,28 @@ if run_btn:
 # PIPELINE EXECUTION
 # =========================================================
 
-if (
-    st.session_state.running
-    and not st.session_state.done
-):
+if st.session_state.running and not st.session_state.done:
 
     results = {}
     topic_val = st.session_state.topic_input
 
     st.divider()
 
-    # Browser anchor used to automatically bring the user to the
-    # active research section after the rerun starts.
     st.markdown(
         '<span id="researching-section" class="researching-anchor"></span>',
         unsafe_allow_html=True,
     )
 
-    st.subheader(
-        f"🔬 Researching: {topic_val}"
+    st.markdown(
+        f"""
+        <div class="dt-card" style="border-color: rgba(99,102,241,0.4);">
+            <div class="dt-section-label">Live run</div>
+            <h4 style="margin:0;">🔬 Researching: {topic_val}</h4>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    # Auto-scroll once the research run begins.
     st.markdown(
         """
         <script>
@@ -187,17 +376,12 @@ if (
                 const target = window.parent.document.getElementById(
                     "researching-section"
                 );
-
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
                     return true;
                 }
                 return false;
             };
-
             if (!scrollToResearch()) {
                 setTimeout(scrollToResearch, 150);
                 setTimeout(scrollToResearch, 500);
@@ -209,15 +393,11 @@ if (
         unsafe_allow_html=True,
     )
 
-
     # -----------------------------------------------------
     # SEARCH
     # -----------------------------------------------------
 
-    with st.status(
-        "🔎 Search Agent · discovering sources",
-        expanded=True,
-    ) as status:
+    with st.status("🔎 Search Agent · discovering sources", expanded=True) as status:
 
         search_agent = build_seacrh_agent()
 
@@ -226,36 +406,23 @@ if (
                 "messages": [
                     (
                         "user",
-                        (
-                            "Find recent, reliable and detailed "
-                            f"information about: {topic_val}"
-                        ),
+                        f"Find recent, reliable and detailed information about: {topic_val}",
                     )
                 ]
             }
         )
 
-        results["search"] = (
-            sr["messages"][-1].content
-        )
+        results["search"] = sr["messages"][-1].content
 
-        status.update(
-            label="✓ Search Agent complete",
-            state="complete",
-            expanded=False,
-        )
+        status.update(label="✓ Search Agent complete", state="complete", expanded=False)
 
     st.session_state.results = dict(results)
-
 
     # -----------------------------------------------------
     # READER
     # -----------------------------------------------------
 
-    with st.status(
-        "📖 Reader Agent · investigating sources",
-        expanded=True,
-    ) as status:
+    with st.status("📖 Reader Agent · investigating sources", expanded=True) as status:
 
         reader_agent = build_reader_agent()
 
@@ -265,39 +432,27 @@ if (
                     (
                         "user",
                         (
-                            f"Based on the following search results "
-                            f"about '{topic_val}', pick the most "
-                            "relevant URL and scrape it for deeper "
-                            "content.\n\n"
-                            f"Search Results:\n"
-                            f"{results['search'][:800]}"
+                            f"Based on the following search results about "
+                            f"'{topic_val}', pick the most relevant URL and "
+                            "scrape it for deeper content.\n\n"
+                            f"Search Results:\n{results['search'][:800]}"
                         ),
                     )
                 ]
             }
         )
 
-        results["reader"] = (
-            rr["messages"][-1].content
-        )
+        results["reader"] = rr["messages"][-1].content
 
-        status.update(
-            label="✓ Reader Agent complete",
-            state="complete",
-            expanded=False,
-        )
+        status.update(label="✓ Reader Agent complete", state="complete", expanded=False)
 
     st.session_state.results = dict(results)
-
 
     # -----------------------------------------------------
     # WRITER
     # -----------------------------------------------------
 
-    with st.status(
-        "✍️ Writer · synthesizing the research",
-        expanded=True,
-    ) as status:
+    with st.status("✍️ Writer · synthesizing the research", expanded=True) as status:
 
         research_combined = (
             f"SEARCH RESULTS:\n{results['search']}\n\n"
@@ -305,41 +460,22 @@ if (
         )
 
         results["writer"] = writer_chain.invoke(
-            {
-                "topic": topic_val,
-                "research": research_combined,
-            }
+            {"topic": topic_val, "research": research_combined}
         )
 
-        status.update(
-            label="✓ Research report drafted",
-            state="complete",
-            expanded=False,
-        )
+        status.update(label="✓ Research report drafted", state="complete", expanded=False)
 
     st.session_state.results = dict(results)
-
 
     # -----------------------------------------------------
     # CRITIC
     # -----------------------------------------------------
 
-    with st.status(
-        "🧐 Critic · reviewing research quality",
-        expanded=True,
-    ) as status:
+    with st.status("🧐 Critic · reviewing research quality", expanded=True) as status:
 
-        results["critic"] = critic_chain.invoke(
-            {
-                "report": results["writer"],
-            }
-        )
+        results["critic"] = critic_chain.invoke({"report": results["writer"]})
 
-        status.update(
-            label="✓ Critic review complete",
-            state="complete",
-            expanded=False,
-        )
+        status.update(label="✓ Critic review complete", state="complete", expanded=False)
 
     st.session_state.results = dict(results)
 
@@ -360,147 +496,90 @@ if results:
 
     st.divider()
 
-    st.header("📑 Research Report")
-
-    with st.container(border=True):
-
-        st.markdown(
-            results.get(
-                "writer",
-                "No report generated.",
-            )
-        )
-
-
     # -----------------------------------------------------
-    # DOWNLOAD
+    # REPORT
     # -----------------------------------------------------
 
-    st.write("")
+    report_col, action_col = st.columns([3.2, 1])
 
-    download_col, new_col = st.columns(2)
+    with report_col:
+        st.header("📑 Research Report")
 
-    with download_col:
-
+    with action_col:
+        st.write("")
         st.download_button(
-            "⬇️  Download Report",
+            "⬇️  Download",
             data=results.get("writer", ""),
-            file_name=(
-                f"deeptrace_report_{int(time.time())}.md"
-            ),
+            file_name=f"deeptrace_report_{int(time.time())}.md",
             mime="text/markdown",
             use_container_width=True,
         )
 
-    with new_col:
+    st.markdown('<div class="dt-card">', unsafe_allow_html=True)
+    st.markdown(results.get("writer", "No report generated."))
+    st.markdown("</div>", unsafe_allow_html=True)
 
-        if st.button(
-            "↻  New Research",
-            use_container_width=True,
-        ):
-
-            st.session_state.results = {}
-            st.session_state.done = False
-            st.session_state.topic_input = ""
-
-            st.rerun()
-
+    if st.button("↻  New Research", use_container_width=False):
+        st.session_state.results = {}
+        st.session_state.done = False
+        st.session_state.topic_input = ""
+        st.rerun()
 
     # -----------------------------------------------------
     # QUALITY
     # -----------------------------------------------------
 
     st.divider()
-
     st.header("⭐ Research Quality")
 
-    critic_text = results.get(
-        "critic",
-        "",
-    )
+    critic_text = results.get("critic", "")
 
-    score_match = re.search(
-        r"Score:\s*([\d.]+)\s*/\s*10",
-        critic_text,
-    )
+    score_match = re.search(r"Score:\s*([\d.]+)\s*/\s*10", critic_text)
+    score = score_match.group(1) if score_match else "—"
 
-    score = (
-        score_match.group(1)
-        if score_match
-        else "—"
-    )
-
-    q1, q2 = st.columns([1, 2])
+    q1, q2 = st.columns([1, 2.6])
 
     with q1:
-
-        st.metric(
-            "Critic Score",
-            f"{score}/10",
+        st.markdown(
+            f"""
+            <div class="dt-score-ring">
+                <div class="dt-score-value">{score}</div>
+                <div class="dt-score-label">out of 10</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
 
     with q2:
-
-        with st.container(border=True):
-
-            st.caption("CRITIC VERDICT")
-
-            st.markdown(
-                critic_text
-            )
-
+        st.markdown('<div class="dt-card" style="height:100%;">', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="dt-section-label">Critic verdict</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(critic_text)
+        st.markdown("</div>", unsafe_allow_html=True)
 
     # -----------------------------------------------------
     # RESEARCH TRAIL
     # -----------------------------------------------------
 
     st.divider()
-
     st.header("🔬 Research Trail")
+    st.caption("See the evidence gathered by the research agents.")
 
-    st.caption(
-        "See the evidence gathered by the research agents."
-    )
-
-    search_tab, reader_tab = st.tabs(
-        [
-            "🔎 Sources",
-            "📖 Investigation",
-        ]
-    )
+    search_tab, reader_tab = st.tabs(["🔎 Sources", "📖 Investigation"])
 
     with search_tab:
-
-        with st.expander(
-            "View Search Agent output",
-            expanded=False,
-        ):
-
-            st.text(
-                results.get(
-                    "search",
-                    "No search output available.",
-                )
-            )
+        st.markdown('<div class="dt-card">', unsafe_allow_html=True)
+        st.text(results.get("search", "No search output available."))
+        st.markdown("</div>", unsafe_allow_html=True)
 
     with reader_tab:
-
-        with st.expander(
-            "View Reader Agent output",
-            expanded=False,
-        ):
-
-            st.text(
-                results.get(
-                    "reader",
-                    "No reader output available.",
-                )
-            )
-
+        st.markdown('<div class="dt-card">', unsafe_allow_html=True)
+        st.text(results.get("reader", "No reader output available."))
+        st.markdown("</div>", unsafe_allow_html=True)
 
 else:
-
-    st.write("")
 
     st.info(
         "💡 Enter a topic above and DeepTrace will "
