@@ -21,7 +21,7 @@ tools = [search_tool]
 #* LLMs
 #*============
 
-writer_llm = ChatMistralAI(model="mistral-large-latest" , temperature=0.7)
+writer_llm = ChatMistralAI(model="mistral-small-2506" , temperature=0.7)
 writer_llm_with_tools = writer_llm.bind_tools(tools)
 
 reviewer_llm = ChatGroq(model="qwen/qwen3.6-27b" , temperature=0.1)
